@@ -91,7 +91,7 @@ article p {
 
           
           
- .btn-grad {
+ .btn-respuesta {
   background-image: linear-gradient(to right, #606c88 0%, #3f4c6b  51%, #606c88  100%);
   margin: 10px;
   padding: 15px 45px;
@@ -107,9 +107,42 @@ article p {
   font-weight: 700;
 }
 
-.btn-grad:hover {
+.btn-respuesta:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
 }
+
+.correcto {
+  background-image: none;
+  background-color: rgb(150, 255, 63);
+}
+.incorrecto {
+  background-image: none;
+  background-color: rgb(245, 19, 19);
+}
+         
+         
+.btn-siguiente {
+  background-image: linear-gradient(to right, #ffb347 0%, #ffcc33  51%, #ffb347  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 2px 3px 0px #eee;
+  border-radius: 15px;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.btn-siguiente:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
 

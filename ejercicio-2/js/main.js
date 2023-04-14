@@ -1,4 +1,3 @@
-// Define las preguntas
 const preguntas = [
   {
     pregunta: "¿En qué continente se encuentra el país de Nigeria?",
@@ -23,26 +22,29 @@ const preguntas = [
   {
     pregunta: "¿En qué continente se encuentra el país de Nueva Zelanda?",
     opciones: ["Asia", "Europa", "Oceanía"],
-    respuesta: 0
+    respuesta: 2
   }
 ];
-
-let preguntaActual = 0;
-let puntos = 0;
 
 const textoPregunta = document.querySelector("#pregunta");
 const btn0 = document.querySelector("#btn0");
 const btn1 = document.querySelector("#btn1");
 const btn2 = document.querySelector("#btn2");
+const btnSiguiente = document.querySelector('#btnSiguiente');
+const btnReiniciar = document.querySelector('#btnReiniciar');
+const botones = document.querySelectorAll('.btn-respuesta');
 const textoPuntos = document.querySelector("#puntos");
 const textoResultado = document.querySelector("#resultadoResp");
+
+let preguntaActual = 0;
+let puntos = 0;
+
+btnReiniciar.style.display = 'none';
 
 function mostrarPregunta() {
   const objPregunta = preguntas[preguntaActual];
   textoPregunta.textContent = objPregunta.pregunta;
-  btn0.textContent = objPregunta.opciones[0];
-  btn1.textContent = objPregunta.opciones[1];
-  btn2.textContent = objPregunta.opciones[2];
+  botones.forEach((boton, index) => boton.textContent = objPregunta.opciones[index])
 }
 
 function validarRespuesta(respuesta) {
@@ -50,30 +52,57 @@ function validarRespuesta(respuesta) {
   if (respuesta === objPregunta.respuesta) {
     puntos += 10;
     textoResultado.textContent = "¡Correcto!";
+    const botonCorrecto = botones[objPregunta.opciones.findIndex(opcion => opcion === objPregunta.opciones[objPregunta.respuesta])];
+    botonCorrecto.classList.add('correcto');
+    console.log(respuesta);
   } else {
     puntos -= 10;
     textoResultado.textContent = "Incorrecto :(";
+    const botonIncorrecto = botones[respuesta];
+    botonIncorrecto.classList.add('incorrecto');
+    console.log(botonIncorrecto);
   }
+  botones.forEach(boton => boton.disabled = true);
   textoPuntos.textContent = puntos;
   preguntaActual++;
+}
+
+function siguientePregunta() {
+  botones.forEach(boton => {
+    boton.classList.remove('correcto', 'incorrecto');
+  });
   if (preguntaActual < preguntas.length) {
     mostrarPregunta();
   } else {
     textoPregunta.textContent = "¡Juego terminado!";
-    btn0.style.display = "none";
-    btn1.style.display = "none";
-    btn2.style.display = "none";
+    botones.forEach(boton => boton.style.display = 'none')
+    btnSiguiente.style.display = 'none';
+    textoResultado.style.display = 'none';
+    btnReiniciar.style.display = 'unset';
   }
+  botones.forEach(boton => boton.disabled = false);
 }
 
-btn0.addEventListener("click", function() {
-  validarRespuesta(0);
-});
-btn1.addEventListener("click", function() {
-  validarRespuesta(1);
-});
-btn2.addEventListener("click", function() {
-  validarRespuesta(2);
-});
+function reiniciarJuego() {
+  preguntaActual = 0;
+  mostrarPregunta();
+  botones.forEach(boton => boton.disabled = false);
+  botones.forEach(boton => boton.style.display = 'unset');
+  textoPuntos.style.display = 'unset';
+  puntos = 0;
+  textoPuntos.textContent = puntos;
+  btnReiniciar.style.display = 'none';
+  btnSiguiente.style.display = 'unset';
+}
+
+btn0.addEventListener('click', () => validarRespuesta(0));
+btn1.addEventListener('click', () => validarRespuesta(1));
+btn2.addEventListener('click', () => validarRespuesta(2));
+
+btnSiguiente.addEventListener('click', () => siguientePregunta());
+
+btnReiniciar.addEventListener('click', () => reiniciarJuego());
+
+  
 
 mostrarPregunta();

@@ -25,81 +25,15 @@ article p {
   text-align: center;
 }
 
-/* button {
-  appearance: button;
-  background-color: #1899D6;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: .8px;
-  line-height: 20px;
-  margin: 0;
-  outline: none;
-  overflow: visible;
-  padding: 13px 19px;
-  text-align: center;
-  text-transform: uppercase;
-  touch-action: manipulation;
-  transform: translateZ(0);
-  transition: filter .2s;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
- }
- 
- button:after {
-  background-clip: padding-box;
-  background-color: #1CB0F6;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  bottom: -4px;
-  content: "";
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
- }
- 
- button:main, button:focus {
-  user-select: auto;
- }
- 
- button:hover:not(:disabled) {
-  filter: brightness(1.1);
- }
- 
- button:disabled {
-  cursor: auto;
- }
- 
- button:active:after {
-  border-width: 0 0 0px;
- }
- 
- button:active {
-  padding-bottom: 10px;
- } */
-
-          
-          
- .btn-respuesta {
-  background-image: linear-gradient(to right, #606c88 0%, #3f4c6b  51%, #606c88  100%);
-  margin: 10px;
-  padding: 15px 45px;
+.btn-respuesta {
+  background-image: linear-gradient(to right, #606c88 0%, #3f4c6b 51%, #606c88 100%);
+  width: 300px;
+  height: 60px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;            
+  color: white;
   box-shadow: 2px 3px 0px #eee;
   border-radius: 15px;
   border: none;
@@ -108,30 +42,40 @@ article p {
 }
 
 .btn-respuesta:hover {
-  background-position: right center; /* change the direction of the change here */
+  background-position: right center;
   color: #fff;
   text-decoration: none;
 }
 
 .correcto {
-  background-image: none;
   background-color: rgb(150, 255, 63);
+  background-image: url(../img/check-circle.svg);
+  background-size: 17%;
+  background-repeat: no-repeat;
+  background-position: right;
+  transition: 0s;
 }
+
 .incorrecto {
   background-image: none;
   background-color: rgb(245, 19, 19);
+  background-image: url(../img/cross-circle.svg);
+  background-size: 17%;
+  background-position: right;
+  background-repeat: no-repeat;
+  transition: 0s;
 }
-         
-         
+
+
 .btn-siguiente {
-  background-image: linear-gradient(to right, #ffb347 0%, #ffcc33  51%, #ffb347  100%);
+  background-image: linear-gradient(to right, #ffb347 0%, #ffcc33 51%, #ffb347 100%);
   margin: 10px;
   padding: 15px 45px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;            
+  color: white;
   box-shadow: 2px 3px 0px #eee;
   border-radius: 15px;
   border: none;
@@ -140,9 +84,7 @@ article p {
 }
 
 .btn-siguiente:hover {
-  background-position: right center; /* change the direction of the change here */
+  background-position: right center;
   color: #fff;
   text-decoration: none;
 }
-
-

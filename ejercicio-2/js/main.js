@@ -11,7 +11,7 @@ const preguntas = [
   },
   {
     pregunta: "¿En qué continente se encuentra el país de Colombia?",
-    opciones: ["America del Sur", "America del Norte", "America Central"],
+    opciones: ["America del Sur", "Europa", "America Central"],
     respuesta: 0
   },
   {
@@ -51,16 +51,14 @@ function validarRespuesta(respuesta) {
   const objPregunta = preguntas[preguntaActual];
   if (respuesta === objPregunta.respuesta) {
     puntos += 10;
-    textoResultado.textContent = "¡Correcto!";
+    // textoResultado.textContent = "¡Correcto!";
     const botonCorrecto = botones[objPregunta.opciones.findIndex(opcion => opcion === objPregunta.opciones[objPregunta.respuesta])];
     botonCorrecto.classList.add('correcto');
-    console.log(respuesta);
   } else {
     puntos -= 10;
-    textoResultado.textContent = "Incorrecto :(";
+    // textoResultado.textContent = "Incorrecto :(";
     const botonIncorrecto = botones[respuesta];
     botonIncorrecto.classList.add('incorrecto');
-    console.log(botonIncorrecto);
   }
   botones.forEach(boton => boton.disabled = true);
   textoPuntos.textContent = puntos;
@@ -102,7 +100,5 @@ btn2.addEventListener('click', () => validarRespuesta(2));
 btnSiguiente.addEventListener('click', () => siguientePregunta());
 
 btnReiniciar.addEventListener('click', () => reiniciarJuego());
-
-  
 
 mostrarPregunta();

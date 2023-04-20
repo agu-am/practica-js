@@ -17,18 +17,54 @@ const personas = [{
 
 const container = document.querySelector("#container")
 
-personas.map(persona => {
-    const personaHtml = `
-    <article>
-    <div class="container-img">
-        <img src="${persona.avatar}">
-    </div>
-    <p class="nombre">${persona.name}</p>
-    <p class="titulo">${persona.title}</p>
-    <button class="btn">${persona.buttontext}</button>
-    </article>
-    `
-    container.innerHTML += personaHtml;
+
+
+function mostrarPersonas(){
+    personas.map(persona => {
+        const personaHtml = `
+        <article>
+        <div class="container-img">
+            <img src="${persona.avatar}">
+        </div>
+        <div class="container-info">
+        <p class="nombre">${persona.name}</p>
+        <p class="titulo">${persona.title}</p>
+        <button class="btn"><i class="icon-btn"></i>${persona.buttontext}</button>
+        </div>
+        </article>
+        `
+        container.innerHTML += personaHtml;
+    });
+}
+
+function agregarPersona(persona){
+    personas.push(persona);
+}
+
+agregarPersona({
+    "name": "Jessica Jones",
+    "title": "Copywriter",
+    "buttontext": "View Text",
+    "avatar": "https://reqres.in/img/faces/1-image.jpg"
 });
+agregarPersona({
+    "name": "Jessica Jones",
+    "title": "Copywriter",
+    "buttontext": "View Text",
+    "avatar": "https://reqres.in/img/faces/4-image.jpg"
+});
+agregarPersona({
+    "name": "Jessica Jones",
+    "title": "Copywriter",
+    "buttontext": "View Text",
+    "avatar": "https://reqres.in/img/faces/2-image.jpg"
+});
+agregarPersona({
+    "name": "Jessica Jones",
+    "title": "Copywriter",
+    "buttontext": "View Text",
+    "avatar": "https://reqres.in/img/faces/3-image.jpg"
+});
+mostrarPersonas();
 
 
